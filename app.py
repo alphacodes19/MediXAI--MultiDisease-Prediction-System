@@ -33,12 +33,12 @@ from utils.database import init_db, create_user, login_user, load_chat_sessions,
 # CONFIGURATION  — edit these two lines
 # ─────────────────────────────────────────────────────────────────
 import os
-from dotenv import load_dotenv
+import streamlit as st
 from groq import Groq
 
-load_dotenv()
+api_key = st.secrets.get("GROQ_API_KEY") or os.getenv("GROQ_API_KEY")
 
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+client = Groq(api_key=api_key)
 # Get a free key at https://console.groq.com (30 req/min, 14,400/day)
 # ─────────────────────────────────────────────────────────────────
 # STARTUP
