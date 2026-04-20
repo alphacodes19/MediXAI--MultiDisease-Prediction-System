@@ -31,14 +31,14 @@ from utils.database import init_db, create_user, login_user, load_chat_sessions,
 
 # ─────────────────────────────────────────────────────────────────
 # CONFIGURATION  — edit these two lines
-# ─────────────────────────────────────────────────────────────────
-import os
+# ──────────────────────────────────────import os
 import streamlit as st
 from groq import Groq
 
-api_key = st.secrets.get("GROQ_API_KEY") or os.getenv("GROQ_API_KEY")
+# Get API key from Streamlit Secrets or env
+GROQ_API_KEY = st.secrets.get("GROQ_API_KEY") or os.getenv("GROQ_API_KEY")
 
-client = Groq(api_key=api_key)
+client = Groq(api_key=GROQ_API_KEY)
 # Get a free key at https://console.groq.com (30 req/min, 14,400/day)
 # ─────────────────────────────────────────────────────────────────
 # STARTUP
