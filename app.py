@@ -158,31 +158,31 @@ if page == "🏠 Home":
     st.caption("> For educational and research purposes only. Always consult a qualified healthcare professional.")
 
 elif page == "🩸 Diabetes":
-    from pages.diabetes import show; show()
+    from src.diabetes import show; show()
 
 elif page == "❤️ Heart Disease":
-    from pages.heart import show; show()
+    from src.heart import show; show()
 
 elif page == "🧠 Parkinson's":
-    from pages.parkinsons import show; show()
+    from src.parkinsons import show; show()
 
 elif page == "📂 Bulk CSV Upload":
-    from pages.bulk_csv import show; show()
+    from src.bulk_csv import show; show()
 
 elif page == "📄 OCR Report Upload":
-    import pages.ocr as ocr_page
+    import src.ocr as ocr_page
     ocr_page.GROQ_API_KEY = GROQ_API_KEY
     ocr_page.show()
 
 elif page == "📊 History & Tracker":
-    from pages.history import show; show()
+    from src.history import show; show()
 
 elif page == "🥗 Recommendations":
-    import pages.recommendations as rec_page
+    import src.recommendations as rec_page
     rec_page.GROQ_API_KEY = GROQ_API_KEY
     rec_page.show()
 
 elif page == "💬 AI Health Assistant":
-    import pages.chatbot as chat_page
+    import src.chatbot as chat_page
     chat_page.GROQ_API_KEY = GROQ_API_KEY
     chat_page.show()
