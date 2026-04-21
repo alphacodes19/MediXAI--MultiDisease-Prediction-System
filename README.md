@@ -4,7 +4,7 @@ A Streamlit web application that unifies three clinical machine learning models 
 risk prediction with Explainable AI (SHAP + LIME), an AI chatbot, bulk CSV processing,
 OCR report analysis, personalised recommendations, and PDF export.
 
-Live Demo: [([https://ragbasedaiteachingassistant-9gyo2aappcge3fjc2mjanmh.streamlit.app/](https://medixai--multidisease-prediction-system-pd38w9ftdpuwk5savhnlob.streamlit.app/))]
+Live Demo: [https://medixai--multidisease-prediction-system-pd38w9ftdpuwk5savhnlob.streamlit.app/]
 ---
 
 ## Table of Contents
