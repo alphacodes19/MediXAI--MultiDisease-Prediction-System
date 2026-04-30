@@ -47,7 +47,7 @@ init_db()   # creates medixai_history.db and all tables if they don't exist
 
 st.set_page_config(
     page_title="MediXAI — Unified Prediction",
-    page_icon="🏥",
+    page_icon="",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -64,10 +64,10 @@ div[data-testid="stMetricValue"] { font-size: 1.8rem !important; }
 # LOGIN WALL  — show login/register screen if not authenticated
 # ─────────────────────────────────────────────────────────────────
 if "user_id" not in st.session_state:
-    st.title("🏥 MediXAI — Multi-Disease Prediction")
+    st.title("MediXAI — Multi-Disease Prediction")
     st.markdown("Please **login** or **register** to continue.")
 
-    tab_login, tab_reg = st.tabs(["🔑 Login", "📝 Register"])
+    tab_login, tab_reg = st.tabs(["Login", "Register"])
 
     with tab_login:
         username = st.text_input("Username", key="login_user")
@@ -108,24 +108,24 @@ if "user_id" not in st.session_state:
 # SIDEBAR NAVIGATION
 # ─────────────────────────────────────────────────────────────────
 with st.sidebar:
-    st.markdown("## 🏥 MediXAI")
+    st.markdown("## MediXAI")
     st.markdown("*Unified Disease Prediction*")
     st.divider()
-    st.markdown(f"👤 **{st.session_state.get('username', 'User')}**")
-    if st.button("🚪 Logout", use_container_width=True):
+    st.markdown(f" **{st.session_state.get('username', 'User')}**")
+    if st.button(" Logout", use_container_width=True):
         st.session_state.clear()
         st.rerun()
     st.divider()
     page = st.radio("Navigate", [
-        "🏠 Home",
-        "🩸 Diabetes",
-        "❤️ Heart Disease",
-        "🧠 Parkinson's",
-        "📂 Bulk CSV Upload",
-        "📄 OCR Report Upload",
-        "📊 History & Tracker",
-        "🥗 Recommendations",
-        "💬 AI Health Assistant",
+        "Home",
+        "Diabetes",
+        "Heart Disease",
+        "Parkinson's",
+        "Bulk CSV Upload",
+        "OCR Report Upload",
+        "History & Tracker",
+        "Recommendations",
+        "AI Health Assistant",
     ], label_visibility="collapsed")
     st.divider()
     st.caption("⚠️ Educational use only.\nNot a substitute for medical advice.")
@@ -133,8 +133,8 @@ with st.sidebar:
 # ─────────────────────────────────────────────────────────────────
 # PAGE ROUTING  — import and call each page's show() function
 # ─────────────────────────────────────────────────────────────────
-if page == "🏠 Home":
-    st.title("🏥 MediXAI — Unified Disease Prediction")
+if page == "Home":
+    st.title("MediXAI — Unified Disease Prediction")
     st.markdown(
         "A single portal for all three disease models with **SHAP + LIME** explainability, "
         "bulk CSV prediction, OCR report autofill, prediction history, "
@@ -142,47 +142,47 @@ if page == "🏠 Home":
     )
     st.divider()
     c1, c2, c3 = st.columns(3)
-    c1.markdown("### 🩸 Diabetes\nNHANES · RandomForest · 7 features\n\nGlucose, HbA1c, BMI, BP, Age")
-    c2.markdown("### ❤️ Heart Disease\nUCI · ExtraTrees · 14 features\n\nCholesterol, MaxHR, ST Depression")
-    c3.markdown("### 🧠 Parkinson's\nOxford voice · Best model\n\nJitter, Shimmer, HNR, RPDE, PPE")
+    c1.markdown("### Diabetes\nNHANES · RandomForest · 7 features\n\nGlucose, HbA1c, BMI, BP, Age")
+    c2.markdown("### Heart Disease\nUCI · ExtraTrees · 14 features\n\nCholesterol, MaxHR, ST Depression")
+    c3.markdown("### Parkinson's\nOxford voice · Best model\n\nJitter, Shimmer, HNR, RPDE, PPE")
     st.divider()
     c4, c5, c6 = st.columns(3)
-    c4.markdown("### 📊 History & Tracker\nAuto-saved per user\nTrend charts · Export CSV")
-    c5.markdown("### 🥗 Recommendations\nSHAP-driven + Groq LLM\nDiet / Exercise / Lifestyle")
-    c6.markdown("### 📄 PDF Export\nFull report download\nafter every prediction")
+    c4.markdown("### History & Tracker\nAuto-saved per user\nTrend charts · Export CSV")
+    c5.markdown("### Recommendations\nSHAP-driven + Groq LLM\nDiet / Exercise / Lifestyle")
+    c6.markdown("### PDF Export\nFull report download\nafter every prediction")
     st.divider()
     c7, c8, c9 = st.columns(3)
-    c7.markdown("### 📂 Bulk CSV\nBatch predict hundreds\nof patients at once")
-    c8.markdown("### 📄 OCR Report\nUpload lab image\nautofill + AI analysis")
-    c9.markdown("### 💬 AI Chatbot\nGroq Llama 3 · Free\nMulti-session · Context-aware")
+    c7.markdown("### Bulk CSV\nBatch predict hundreds\nof patients at once")
+    c8.markdown("### OCR Report\nUpload lab image\nautofill + AI analysis")
+    c9.markdown("### AI Chatbot\nGroq Llama 3 · Free\nMulti-session · Context-aware")
     st.caption("> For educational and research purposes only. Always consult a qualified healthcare professional.")
 
-elif page == "🩸 Diabetes":
+elif page == "Diabetes":
     from src.diabetes import show; show()
 
-elif page == "❤️ Heart Disease":
+elif page == "Heart Disease":
     from src.heart import show; show()
 
-elif page == "🧠 Parkinson's":
+elif page == "Parkinson's":
     from src.parkinsons import show; show()
 
-elif page == "📂 Bulk CSV Upload":
+elif page == "Bulk CSV Upload":
     from src.bulk_csv import show; show()
 
-elif page == "📄 OCR Report Upload":
+elif page == "OCR Report Upload":
     import src.ocr as ocr_page
     ocr_page.GROQ_API_KEY = GROQ_API_KEY
     ocr_page.show()
 
-elif page == "📊 History & Tracker":
+elif page == "History & Tracker":
     from src.history import show; show()
 
-elif page == "🥗 Recommendations":
+elif page == "Recommendations":
     import src.recommendations as rec_page
     rec_page.GROQ_API_KEY = GROQ_API_KEY
     rec_page.show()
 
-elif page == "💬 AI Health Assistant":
+elif page == "AI Health Assistant":
     import src.chatbot as chat_page
     chat_page.GROQ_API_KEY = GROQ_API_KEY
     chat_page.show()
